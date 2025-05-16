@@ -136,7 +136,7 @@
 
 ### `POST /submissions/human`
 
-AI添削に対する人間の修正を記録します。
+人間の修正を記録します。
 
 - **リクエスト**:
 ```json
@@ -147,11 +147,6 @@ AI添削に対する人間の修正を記録します。
       "original": "He go to school.",
       "corrected": "He goes to school.",
       "reason": "Subject-verb agreement"
-    },
-    {
-      "original": "school.",
-      "corrected": "the school.",
-      "reason": "Missing article"
     }
   ]
 }
