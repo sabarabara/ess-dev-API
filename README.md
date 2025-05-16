@@ -97,6 +97,11 @@
 ]
 ```
 
+```
+GET /submissions/select?page=2&limit=10&sortBy=date
+```
+上記のようにして一挙取得における負担を軽減している
+
 ---
 
 ### `GET /submissions/by-user?username={username}`
