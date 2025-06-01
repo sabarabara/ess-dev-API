@@ -1,0 +1,171 @@
+ログイン画面
+  post
+    req
+      UserId
+      password
+    res
+      admin
+
+  
+管理者画面,User編集画面
+  post
+    UserId
+    password
+    name
+    mailaddress
+
+  get
+    UserId
+    password
+    name
+    mailaddress
+
+  by-user(queryparam-UserId), all 5人くらい<-配列で
+
+  put
+    UserId
+    password
+    name
+    mailaddress
+
+  delete
+    UserId
+
+
+タイムライン画面
+  get
+    name
+    text
+    date
+    submissionId
+
+  同様に5人くらい？
+
+
+他人の英文にコメントする画面
+  get
+    name
+    text
+    corrections[
+      original
+      corrected
+      reason
+    ]
+  queryparam-submissionId
+  
+  post
+    submissionId
+    message[]
+    date
+
+英文入力画面
+  post
+    req
+      text
+    res
+      text
+      corrections[
+        original
+        corrected
+        reason
+      ]
+
+ここでは保存を行わないため一時的にlocalstaregeにresの内容を保持
+下記で投稿ボタンをクリックした時点で登録としてのstrageから削除する。
+またページ遷移でも削除とする。
+
+AI採点後画面
+  post
+    text
+    corrections[
+      original
+      corrected
+      reason
+    ]
+
+通知画面
+  get
+    name
+    submissionId
+  
+  queryparam-UserId
+
+通知詳細画面
+  get
+    text
+    messages{
+      message
+      name
+    }
+
+  queryparam-submissionId
+
+マイページ
+  get
+    [
+    name
+    date
+    text
+    submissionId
+    ]
+  queryparam-UserId
+
+  delete
+    submissionId
+
+  
+各投稿の詳細
+  get
+    text
+    corrections[
+      original
+      corrected
+      reason
+    ]
+    messages[
+      name
+      message
+    ]
+
+  queryparam-submissionId
+
+
+
+
+
+
+
+
+
+
+DBschema
+
+  User
+    UserId
+    password
+    name
+    mailaddress
+    admin
+
+  comment
+    commentId
+    UserId
+    name
+    message
+    date
+    submissionId
+
+  submission
+    UserId
+    submissionId
+    text
+
+  corrections
+    submissionId
+    original
+    corrected
+    reason
+
+
+
+
